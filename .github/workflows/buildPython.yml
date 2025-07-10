@@ -5,4 +5,4 @@ jobs:
     container: python:latest
     steps:
       - uses: actions/checkout@v3
-      - run: correos_automaticos
+      - run: correos_automaticos.py
