@@ -22,7 +22,7 @@ msg = MIMEMultipart()
 msg["From"] = username
 msg["To"] = "jpdelmuro@gmail.com"
 msg["Subject"] = f"Cambios en la rama {branch}"
-msg.attach(MIMEText(f"Hola\nSe hicieron los siguientes cambios en la rama {branch}\nMensaje del commit:\n{commit_message}", "plain"))
+msg.attach(MIMEText(f"Hola\nSe hicieron los siguientes cambios en la rama {branch}\nMensaje del commit: {commit_message}", "plain"))
 
 try:
     print("Conectando al servidor...")
