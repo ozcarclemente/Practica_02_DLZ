@@ -1,0 +1,8 @@
+on: push
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    container: python:latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: correos_automaticos
