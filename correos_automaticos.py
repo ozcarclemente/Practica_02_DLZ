@@ -3,9 +3,13 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-
+# Nombre del branch
 branch = os.getenv('BRANCH_NAME', 'unknown')
 print(f"La rama actual es: {branch}")
+
+# Mensaje del commit
+commit_message = os.getenv('COMMIT_MESSAGE', 'Sin mensaje')
+print(f"Mensaje del commit: {commit_message}")
 
 # Configuración de IONOS MX
 smtp_server = "smtp.ionos.mx"
@@ -18,7 +22,7 @@ msg = MIMEMultipart()
 msg["From"] = username
 msg["To"] = "jpdelmuro@gmail.com"
 msg["Subject"] = f"Cambios en la rama {branch}"
-msg.attach(MIMEText("Hola, este correo fue enviado desde Python usando IONOS.", "plain"))
+msg.attach(MIMEText(f"Hola\nSe hicieron los siguientes cambios en la rama {branch}\nMensaje del commit:\n{commit_message}", "plain"))
 
 try:
     print("Conectando al servidor...")

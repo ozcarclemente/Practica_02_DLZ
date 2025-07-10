@@ -8,4 +8,5 @@ jobs:
       - name: Ejecutar script Python
         env:
           BRANCH_NAME: ${{ github.ref_name }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: python correos_automaticos.py
