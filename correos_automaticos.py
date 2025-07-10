@@ -1,6 +1,11 @@
+import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+
+branch = os.getenv('BRANCH_NAME', 'unknown')
+print(f"La rama actual es: {branch}")
 
 # Configuración de IONOS MX
 smtp_server = "smtp.ionos.mx"
@@ -12,7 +17,7 @@ password = "correoPractica2."
 msg = MIMEMultipart()
 msg["From"] = username
 msg["To"] = "jpdelmuro@gmail.com"
-msg["Subject"] = "Prueba desde Python"
+msg["Subject"] = f"Cambios en la rama {branch}"
 msg.attach(MIMEText("Hola, este correo fue enviado desde Python usando IONOS.", "plain"))
 
 try:

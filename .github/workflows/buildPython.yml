@@ -5,4 +5,7 @@ jobs:
     container: python:latest
     steps:
       - uses: actions/checkout@v3
-      - run: python correos_automaticos.py
+      - name: Ejecutar script Python
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: python correos_automaticos.py
